@@ -29,21 +29,26 @@ class App extends Component {
         />
       );
     }
-    return <div className="button-container">{buttons}</div>;
+    return (
+      <div>
+        <h1 style={{ color: "white" }}>Drummy by React</h1>;
+        <div className="button-container">{buttons}</div>;
+      </div>
+    );
   }
 }
 
 class Button extends Component {
   render() {
     return (
-      <div
+      <button
         // Add additional attributes here
         id={this.props.sound}
         className="button"
         onClick={this.props.playSound}
       >
         <p>{this.props.sound}</p>
-      </div>
+      </button>
     );
   }
 }

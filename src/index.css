@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: gray;
+  background: rgb(0, 0, 0);
 }
 
 code {
@@ -16,14 +16,14 @@ code {
 }
 
 .button-container {
-  background-color: 'pink';
+  background-color: "pink";
   display: grid;
   grid-gap: 10px;
   grid-template: auto/ 1fr 1fr 1fr 1fr;
-
 }
 
 .button {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,4 +34,5 @@ code {
   text-transform: uppercase;
   background: linear-gradient(to top, rgb(255, 253, 131), rgb(255, 230, 0));
   box-shadow: 3px 3px #ffd000;
+  outline: none;
 }
