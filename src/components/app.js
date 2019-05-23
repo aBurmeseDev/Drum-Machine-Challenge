@@ -10,16 +10,23 @@ class App extends Component {
     this.playSound = this.playSound.bind(this);
   }
 
-  playSound(eventObj) {
+  playSound(e) {
     // code to be run when click event is fired goes below this line!
-    console.log("button working");
+    console.log("button working", e.currentTarget.id);
+    const soundToPlay = Sounds[e.currentTarget.id];
+    soundToPlay.currentTime = 0;
+    soundToPlay.play();
   }
 
   render() {
     const buttons = [];
     for (let i = 0; i < this.state.sounds.length; i++) {
       buttons.push(
-        <Button sound={this.state.sounds[i]} playSound={this.playSound} />
+        <Button
+          key={i}
+          sound={this.state.sounds[i]}
+          playSound={this.playSound}
+        />
       );
     }
     return <div className="button-container">{buttons}</div>;
@@ -31,6 +38,7 @@ class Button extends Component {
     return (
       <div
         // Add additional attributes here
+        id={this.props.sound}
         className="button"
         onClick={this.props.playSound}
       >
